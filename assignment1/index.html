@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+<script type="text/javascript" src="radiobutton.js"></script>
+
+<style>
+
+		.box1 {
+			width:400px;
+			height:400px;
+			background-color: #e4e4e4;
+			float: left;
+			padding: 20px;
+		}
+
+
+		.box2 {
+			width:400px;
+			height:400px;
+			background-color: #e4e4e4;
+			float: right;
+			padding: 20px;
+		}
+
+
+		.redBkg{
+
+			background-color: red;
+		}
+
+		.redBkgBox11{
+
+			background-color: #9e0606;
+		}
+
+		.redBkgBox22{
+
+			background-color: #540505;
+		}
+
+
+		.greenBkg{
+
+			background-color: green;
+		}
+
+		.greenBkgBox11{
+
+			background-color: #24c824;
+		}
+
+		.greenBkgBox22{
+
+			background-color: #b3e9b3;
+		}
+
+		
+		.blueBkg{
+
+			background-color: blue;
+		}
+
+		.blueBkgBox11{
+
+			background-color: #6565f7;
+		}
+
+		.blueBkgBox22{
+
+			background-color: #b3b3ee;
+		}
+
+		.yellowBkg{
+
+			background-color: yellow;
+		}
+
+		.yellowBkgBox11{
+
+			background-color: #f8f89d;
+		}
+
+		.yellowBkgBox22{
+
+			background-color: #92920f;
+		}
+
+
+
+
+		.strong {
+
+			font-weight: bold;
+		}
+
+	</style>
+
+</head>
+
+<body ng-app="MyModule" ng-controller="MyController as ctrl" ng-class="ctrl.colorSelected">
+	
+	<div>
+		
+		<h2 ng-bind="ctrl.pgtitle"></h2>
+	
+		<input type="radio" name="colors" ng-model="ctrl.colorSelected" value="redBkg">Red
+		<input type="radio" name="colors" ng-model="ctrl.colorSelected" value="greenBkg">Green
+		<input type="radio" name="colors" ng-model="ctrl.colorSelected" value="blueBkg">Blue
+		<input type="radio" name="colors" ng-model="ctrl.colorSelected" value="yellowBkg">Yellow
+
+		<p>
+			<label>Selected Color:</label>
+			<label ng-bind="ctrl.colorSelected"></label>
+		</p>
+
+
+		<div class="box1" ng-class="ctrl.colorSelected + 'Box11'">
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not.
+
+
+
+		</div>
+
+
+		<div class="box2" ng-class="ctrl.colorSelected + 'Box22'">
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not.
+		</div>
+
+	</div>
+
+</body>
+
+</html>

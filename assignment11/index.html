@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+<script type="text/javascript" src="radiobutton.js"></script>
+
+<style>
+
+		h1{
+			font-size: 24px;
+			font-family: arial, helvetica;
+		}
+
+		.box1 {
+			width:96%;
+			background-color: #e4e4e4;
+			padding: 20px;
+		}
+
+
+		.box2 {
+			width:96%;
+			background-color: #e4e4e4;
+			padding: 20px;
+		}
+
+		.whiteBkg{ background-color: white;}
+		.whiteBkgBox1{background-color: #dfdfdf;}
+		.whiteBkgBox2{background-color: #aaaaa9;}
+		.redBkg{ background-color: red;}
+		.redBkgBox1{background-color: #9e0606;}
+		.redBkgBox2{background-color: #540505;}
+		.greenBkg{background-color: green;}
+		.greenBkgBox1{background-color: #24c824;}
+		.greenBkgBox2{background-color: #b3e9b3;}
+		.blueBkg{background-color: blue;}
+		.blueBkgBox1{background-color: #6565f7;}
+		.blueBkgBox2{background-color: #b3b3ee;}
+		.yellowBkg{background-color: yellow;}
+		.yellowBkgBox1{background-color: #f8f89d;}
+		.yellowBkgBox2{background-color: #92920f;}
+		.blackText{color: black;}
+		.whiteText{color: white;}
+
+
+
+
+		.strong {
+
+			font-weight: bold;
+		}
+
+	</style>
+
+</head>
+
+<body ng-app="MyModule" ng-controller="MyController as ctrl" ng-class="ctrl.colorSelected.bkgColor">
+	
+	<div>
+		
+		<h1 ng-bind="ctrl.pgtitle"></h1>
+				<input type="radio" name="colors" ng-model="ctrl.colorSelected" ng-value="ctrl.default" ng-model="myRating"/>Default
+				<input type="radio" name="colors" ng-model="ctrl.colorSelected" ng-value="ctrl.redColor" ng-model="myRating"/>Red
+				<input type="radio" name="colors" ng-model="ctrl.colorSelected" ng-value="ctrl.greenColor" ng-model="myRating"/>Green
+				<input type="radio" name="colors" ng-model="ctrl.colorSelected" ng-value="ctrl.blueColor" ng-model="myRating"/>Blue
+				<input type="radio" name="colors" ng-model="ctrl.colorSelected" ng-value="ctrl.yellowColor" ng-model="myRating"/>Yellow
+		<p>
+			<label>Selected Color:</label>
+			<label ng-bind="ctrl.colorSelected.colorTitle"></label>
+		</p>
+
+		
+
+		<div class="box1" ng-class="ctrl.colorSelected.box1Color">
+			<span ng-class="ctrl.colorSelected.box1textColor" ng-bind="ctrl.colorSelected.box1Text"></span>
+		</div>
+
+		<p></p>
+
+
+		<div class="box2" ng-class="ctrl.colorSelected.box2Color">
+			<span ng-class="ctrl.colorSelected.box2textColor" ng-bind="ctrl.colorSelected.box2Text"></span>
+		</div>
+
+	</div>
+
+</body>
+
+</html>

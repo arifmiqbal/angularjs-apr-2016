@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+	<script type="text/javascript" src="index2.js"></script>
+	<style>
+
+		.box {
+			width:200px;
+			height:200px;
+			background-color: red;
+		}
+
+
+		.whiteText{
+
+			color:white;
+		}
+
+		.greenText{
+
+			color:green;
+		}
+
+		.strong {
+
+			font-weight: bold;
+		}
+
+	</style>
+
+</head>
+
+<body ng-app="MyModule">
+	<h2>Hello World</h2>
+	<div ng-controller="MyController as ctrl">
+
+		<div ng-bind="ctrl.greeting"></div>
+
+		<p>{{ctrl.greeting + 'Hola!'}}<br>
+
+			{{ctrl.HW}}
+		</p>
+
+		<div class="box" ng-class="ctrl.textColor">
+
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not. 
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>
