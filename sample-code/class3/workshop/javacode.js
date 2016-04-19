@@ -19,6 +19,7 @@ myMod.controller('MyController', function(){
 
 		console.log('you click a button');
 		self.isBoxChecked = !self.isBoxChecked;
+		self.userDefaultProfile = angular.copy(self.userProfile);
 	}
 
 
@@ -34,9 +35,9 @@ myMod.controller('MyController', function(){
 		firstname: 'George',
 		lastname: 'Dagher',
 		email: 'george@nycda.com' 
-	};
+	}
 
-	self.userDefaultProfile = angular.copy(self.userProfile);
+	
 
 
 	
