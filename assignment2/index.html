@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+<script type="text/javascript" src="javacode.js"></script>
+
+	<style>
+
+		h1{
+			font-size: 24px;
+			font-family: arial, helvetica;
+		}
+
+		h2{
+			font-size: 20px;
+			font-family: arial, helvetica;
+		}
+
+
+		h3{
+			font-size: 16px;
+			font-family: arial, helvetica;
+		}
+
+
+		h5{
+			font-size: 12px;
+			font-family: arial, helvetica;
+		}
+
+		.box1{
+			float: left;
+		}
+
+		.box2{
+			float: right;
+		}
+
+	</style>
+
+</head>
+
+<body ng-app="MyModule">
+
+
+<div ng-controller="MyFolderController as ctrlFolder" >
+
+	<div class="box1">
+
+		<input type="checkbox" ng-model="ctrlFolder.isBoxChecked"> Expand all
+		<!--<div ng-bind="ctrlFolder.isBoxChecked"></div>-->
+
+		<div ng-repeat="folder in ctrlFolder.folders">
+
+			<ul>
+				<li><label ng-bind="folder.foldername"></label>
+					<div ng-repeat="subfolder in folder.subfoldername" ng-show="ctrlFolder.isBoxChecked">
+						<ul>
+							<li><label ng-bind="subfolder"></label></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="box2">
+
+		File Name: <input type='text' name="filename" ng-model="ctrlFolder.folders.subfoldername"/><input type="button" ng-click="ctrlFolder.onUserClickFolder()" value="Add a file"/>
+		<br/><span ng-bind="ctrlFolder.folders.subfoldername"></span>
+		<br/>
+		
+		<div ng-repeat="folder in ctrlFolder.folders">
+			<input type="radio" name="colors" ng-model="ctrlFolder.folderSelected" ng-value="$index"/> <label ng-bind="folder.foldername"></label>
+		</div>
+
+
+<!--
+		<input type="radio" name="colors" ng-bind="ctrlForm.foldername.priority" value="Folder 1"/>Folder 1<br/>
+		<input type="radio" name="colors" ng-model="ctrlForm.userForm.priority" value="Folder 2"/>Folder 2<br/>
+		<input type="radio" name="colors" ng-model="ctrlForm.userForm.priority" value="Folder 3"/>Folder 3<br/>
+		<input type="radio" name="colors" ng-model="ctrlForm.userForm.priority" value="Folder 4"/>Folder 4
+	-->	
+		<br/>
+	</div>
+</div>
+
+
+
+<div style="clear: both;">
+	<P>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P>
+	<h3>FORM</h3>
+
+	<div ng-controller="MyFormController as ctrlForm">
+
+		Name: <input type='text' name="username" ng-model="ctrlForm.userForm.name"/><br/>
+		Description: <input type='text' name="description" ng-model="ctrlForm.userForm.description"/><br/>
+		
+		Priority: <br/>
+		<input type="radio" name="colors" ng-model="ctrlForm.userForm.priority" value="High"/>High<br/>
+		<input type="radio" name="colors" ng-model="ctrlForm.userForm.priority" value="Medium"/>Medium<br/>
+		<input type="radio" name="colors" ng-model="ctrlForm.userForm.priority" value="Low"/>Low
+		
+		<br/>
+		
+		<input type="button" ng-click="ctrlForm.onUserClick()" value="Add todo"/>
+
+		<h2>Todos List</h2>
+
+		<div ng-repeat="person in ctrlForm.userForm">
+
+				<h5>ToDo {{$index + 1}}</h4>
+
+				Name: <label ng-bind="person.name"></label><br/>
+				Description: <label ng-bind="person.description"></label> <br/>
+				Priority: <label ng-bind="person.priority"></label><br/>
+				<input type="button" ng-click="ctrlForm.remove($index)" value="Remove"/>
+
+				<p>---------------------------------</p>
+
+		</div>
+	</div>
+
+</body>
+
+</html>
