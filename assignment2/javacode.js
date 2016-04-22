@@ -84,5 +84,4 @@ myMod.controller('MyFormController', function(){
 		console.log(index);
     	self.userForm.splice(index, 1);
     };
-
 });
