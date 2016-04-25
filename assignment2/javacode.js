@@ -25,7 +25,6 @@ myMod.controller('MyFolderController', function(){
 	}];
 
 
-
 	//Add Folder
 
 	self.onUserClickFolder = function(){
