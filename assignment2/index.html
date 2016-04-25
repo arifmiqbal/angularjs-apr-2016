@@ -28,10 +28,11 @@
 
 		.box1{
 			float: left;
+			width: 450px;
 		}
 
 		.box2{
-			float: right;
+			float: left;
 		}
 
 	</style>
@@ -71,52 +72,34 @@
 			<input type="radio" name="colors" ng-model="ctrlFolder.folderSelected" ng-value="$index"/> <label ng-bind="folder.foldername"></label>
 		</div>
 
-<!--
-		<input type="radio" name="colors" ng-bind="ctrlForm.foldername.priority" value="Folder 1"/>Folder 1<br/>
-		<input type="radio" name="colors" ng-model="ctrlForm.userForm.priority" value="Folder 2"/>Folder 2<br/>
-		<input type="radio" name="colors" ng-model="ctrlForm.userForm.priority" value="Folder 3"/>Folder 3<br/>
-		<input type="radio" name="colors" ng-model="ctrlForm.userForm.priority" value="Folder 4"/>Folder 4
-	-->	
 		<br/>
 	</div>
 </div>
 
-
-
 <div style="clear: both;">
-	<P>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P><P>&nbsp;</P>
+
+	<div style="height: 60px">&nbsp;</div>
+	
 	<h3>FORM</h3>
-
 	<div ng-controller="MyFormController as ctrlForm">
-
 		Name: <input type='text' name="username" ng-model="ctrlForm.userForm.name"/><br/>
 		Description: <input type='text' name="description" ng-model="ctrlForm.userForm.description"/><br/>
-		
 		Priority: <br/>
 		<input type="radio" name="colors" ng-model="ctrlForm.userForm.priority" value="High"/>High<br/>
 		<input type="radio" name="colors" ng-model="ctrlForm.userForm.priority" value="Medium"/>Medium<br/>
 		<input type="radio" name="colors" ng-model="ctrlForm.userForm.priority" value="Low"/>Low
-		
 		<br/>
 		
 		<input type="button" ng-click="ctrlForm.onUserClick()" value="Add todo"/>
-
 		<h2>Todos List</h2>
-
 		<div ng-repeat="person in ctrlForm.userForm">
-
 				<h5>ToDo {{$index + 1}}</h4>
-
 				Name: <label ng-bind="person.name"></label><br/>
 				Description: <label ng-bind="person.description"></label> <br/>
 				Priority: <label ng-bind="person.priority"></label><br/>
 				<input type="button" ng-click="ctrlForm.remove($index)" value="Remove"/>
-
 				<p>---------------------------------</p>
-
 		</div>
 	</div>
-
 </body>
-
 </html>
