@@ -1,0 +1,11 @@
+Good Job Arif here are some points:
+
+Really the only comment I have is to try to avoid doing things like this in the markup
+
+	ng-class="ctrl.colorSelected + 'Box11'"
+
+Even though it's a very small amount of logic it still some logic.
+
+The issue with it is it makes the code more fragile because we can't directly test this kind of stuff in the markup.  So if someone changes it we won't have a way of determining it's not working.  It's better to put any logic like this in the controller (for now, but the model would be the best place later on down the road).
+
+10/10
