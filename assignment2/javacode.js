@@ -24,7 +24,6 @@ myMod.controller('MyFolderController', function(){
 		subfoldername: ['folder 4.1', 'folder 4.2', 'folder 4.3']
 	}];
 
-
 	//Add Folder
 
 	self.onUserClickFolder = function(){
