@@ -58,7 +58,7 @@ angular.module('MyControllerModule', [])
             myAvg = parseInt(this.studentAssignment[i].assignmentGrade) + myAvg;
         }
         myAvg = myAvg/this.studentAssignment.length;
-        return myAvg;
+        return myAvg.toFixed(2);
  	}
 
 
