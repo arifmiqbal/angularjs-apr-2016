@@ -1,0 +1,50 @@
+Good Job Arif!  Good job on using two controllers.  Makes the code easier to read.  Nice job with implementing "Remove" on the tasks.  I think the only thing missing was the colors on the Todo tasks.  Check out the video for what I mean.
+
+Below are a few optimizations you can make...
+
+		// what you have...
+		<div ng-repeat="folder in ctrlFolder.folders">
+			<ul>
+				<li><label ng-bind="folder.foldername"></label>
+					<div ng-repeat="subfolder in folder.subfoldername" ng-show="ctrlFolder.isBoxChecked">
+						<ul>
+							<li><label ng-bind="subfolder"></label></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+
+		// optimzation: take out the inner div.  you really only want to ng-repeat over the list items.
+		<div ng-repeat="folder in ctrlFolder.folders">
+			<ul>
+				<li><label ng-bind="folder.foldername"></label>
+					<ul>
+						<li ng-repeat="subfolder in folder.subfoldername" ng-show="ctrlFolder.isBoxChecked">
+							<label ng-bind="subfolder"></label>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+
+
+		//what you have..
+		<div ng-repeat="folder in ctrlFolder.folders">
+			<input type="radio" name="colors" ng-model="ctrlFolder.folderSelected" ng-value="$index"/> <label ng-bind="folder.foldername"></label>
+		</div>
+
+
+		//optimization: set the ng-value equal to "folder".  This will make ctrlFolder.folderSelected equal to the folder the user wants to add stuff to.  So in you controller you can just say "self.folderSelected.subfoldername.push(...)"  you don't need to use the index any more.
+		<div ng-repeat="folder in ctrlFolder.folders">
+			<input type="radio" name="colors" ng-model="ctrlFolder.folderSelected" ng-value="folder"/> <label ng-bind="folder.foldername"></label>
+		</div>
+
+		//what you have...
+		<input type="button" ng-click="ctrlForm.remove($index)" value="Remove"/>
+
+		//optimization:  this is a little advanced but sometimes the $index in the markup can get out of sync with the $index. in the javascript.  So it's better to always pass the object in the array instead of the index then figure out the index in the controller.  var index = self.userForm.indexOf(todo);
+		
+		<input type="button" ng-click="ctrlForm.remove(todo)" value="Remove"/>
