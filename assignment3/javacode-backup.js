@@ -14,12 +14,15 @@ angular.module('MyControllerModule', [])
 		self.studAverage = self.studentProfilename.average();
 		self.studGrade = self.studentProfilename.grade(self.studAverage);
 		self.studPass = self.studentProfilename.pass(self.studGrade);
+
+
 	};
 
 
 	self.onRemoveClick = function(index){
 
 		self.studentProfilename.removeAssignment(index);
+
 		self.studAverage = self.studentProfilename.average();
 		self.studGrade = self.studentProfilename.grade(self.studAverage);
 		self.studPass = self.studentProfilename.pass(self.studGrade);
@@ -29,7 +32,10 @@ angular.module('MyControllerModule', [])
 })
 
 
-.factory('StudentReportCard', function() {
+
+
+
+.factory('StudentReportCard', function(MathExpressionsCalc) {
 
 	function StudentReportCard(name) {
 	    this.student = name;
@@ -49,12 +55,15 @@ angular.module('MyControllerModule', [])
 
 
 	StudentReportCard.prototype.removeAssignment = function(index) {
- 	     this.studentAssignment.splice(index, 1);
- 	}
+		 
+	     this.studentAssignment.splice(index, 1);
+ 
+	}
 
 
 	StudentReportCard.prototype.average = function() {
 		var myAvg = 0;
+	     
 	    for (var i = 0; i < this.studentAssignment.length ; i++) {
             myAvg = parseInt(this.studentAssignment[i].assignmentGrade) + myAvg;
         }
@@ -91,7 +100,32 @@ angular.module('MyControllerModule', [])
 	}
 
 
-return StudentReportCard;
+	return StudentReportCard;
+})
+
+
+.service('MathExpressionsCalc', function() {
+	var self = this;
+
+	function myPrivateFunc() {
+
+	}
+
+	var myPrivateObject = {
+		hello: 'world'
+	}
+
+	self.calculateSum = function(a, b) {
+		return a + b;
+	};
+
+	self.getMax = function(a, b) {
+		if (a>b) {
+			return a;
+		} else {
+			return b;
+		}
+	};
 
 });
 

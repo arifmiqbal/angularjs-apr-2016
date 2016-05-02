@@ -60,7 +60,7 @@
 		Grade: <input type='text' name="description" ng-model="ctrlStudent.studentAssignment.assignmentGrade"/> /100<br/><br/>
 				
 		<input type="button" ng-click="ctrlStudent.onAddClick()" value="Add"/>
-		<!--<h2>Assignment List:</h2>-->
+		
 		<div ng-repeat="Assign in ctrlStudent.studentProfilename.studentAssignment">
 				<h4>Assignment# {{$index + 1}}</h4>
 				Name: <label ng-bind="Assign.assignmentName"></label><br/>
