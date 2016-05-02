@@ -3,7 +3,6 @@ angular.module('MyControllerModule', [])
 .controller('MyStudentController', function(StudentReportCard) {
 	var self = this;
 	self.studentProfilename = new StudentReportCard(self.studentName);
-	
 
 	self.onAddClick = function(){
 

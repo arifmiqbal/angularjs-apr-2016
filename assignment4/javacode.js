@@ -9,7 +9,6 @@ angular.module('MyControllerModule', [])
 	};
 })
 
-
 .factory('UserMusicPlaylist', function() {
 
 	this.userName = name;
