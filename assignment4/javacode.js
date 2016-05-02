@@ -2,17 +2,23 @@ angular.module('MyControllerModule', [])
 
 .controller('myPlaylistController', function(UserMusicPlaylist) {
 	var self = this;
+	
 	self.userPlaylist = new UserMusicPlaylist();
 	
 	self.onUserClick = function(){
 		self.userPlaylist.UserClick();
 	};
+
+	self.userAgeCheck = function(){
+		return self.userPlaylist.userCheckAge();
+	};
+	
 })
 
 .factory('UserMusicPlaylist', function() {
 
-	this.userName = name;
-	this.userAge = null;
+	this.userName = null;
+	this.userAge = 0;
 	this.userExplicit = null;
 
 	function UserMusicPlaylist() {
@@ -57,9 +63,14 @@ angular.module('MyControllerModule', [])
 
 
 	UserMusicPlaylist.prototype.UserClick = function() {
-		console.log('Age:', this.userName);
+		console.log('Name:', this.userName);
 		console.log('Age:', this.userAge);
-		console.log('Explicit:', this.userExplicit);
+		if (this.userExplicit) {
+			console.log('Explicit:', this.userExplicit);
+		} else {
+			console.log('Explicit: false');
+		}
+		
 		console.log('Selected Songs:');
 
 		for (var i = 0; i < this.musicPlaylistArr.length ; i++) {
@@ -69,6 +80,15 @@ angular.module('MyControllerModule', [])
       
         }
 		
+	}
+
+
+	UserMusicPlaylist.prototype.userCheckAge = function() {
+		if (this.userAge >= 18) {
+			return true;
+			} else {
+			return false;
+			}
 	}
 
 	return UserMusicPlaylist;

@@ -50,12 +50,12 @@
 <div ng-controller="myPlaylistController as ctrlPlaylist">
 	<div class="box1">
 		<p>
-			Name: <input type='text' name="pname" ng-model="ctrlPlaylist.ctrlPlaylist.userPlaylist.userName"/>
+			Name: <input type='text' name="pname" ng-model="ctrlPlaylist.userPlaylist.userName"/>
 			<br/>
 
-			Age: <input type='text' name="page" ng-model="ctrlPlaylist.userPlaylist.userAge"/>
+			Age: <input type='text' name="page" ng-model="ctrlPlaylist.userPlaylist.userAge" />
 			<br/>
-			<div ng-show="ctrlPlaylist.userPlaylist.userAge > 18">
+			<div ng-show="ctrlPlaylist.userAgeCheck()">
 				Explicit: <input type="checkbox" ng-model="ctrlPlaylist.userPlaylist.userExplicit">
 			</div>
 		</p>
