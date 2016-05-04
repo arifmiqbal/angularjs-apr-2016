@@ -34,6 +34,22 @@
 			float: left;
 		}
 
+
+		.High{
+			
+			color: red;
+		}
+
+		.Medium{
+			
+			color: green;
+		}
+
+		.Low{
+			
+			color: blue;
+		}
+
 	</style>
 
 </head>
@@ -48,17 +64,18 @@
 		<!--<div ng-bind="ctrlFolder.isBoxChecked"></div>-->
 
 		<div ng-repeat="folder in ctrlFolder.folders">
-
 			<ul>
 				<li><label ng-bind="folder.foldername"></label>
-					<div ng-repeat="subfolder in folder.subfoldername" ng-show="ctrlFolder.isBoxChecked">
-						<ul>
-							<li><label ng-bind="subfolder"></label></li>
-						</ul>
-					</div>
+					<ul>
+						<li ng-repeat="subfolder in folder.subfoldername" ng-show="ctrlFolder.isBoxChecked">
+							<label ng-bind="subfolder"></label>
+						</li>
+					</ul>
 				</li>
 			</ul>
 		</div>
+
+		
 	</div>
 
 	<div class="box2">
@@ -66,9 +83,10 @@
 		File Name: <input type='text' name="filename" ng-model="ctrlFolder.folders.subfoldername"/><input type="button" ng-click="ctrlFolder.onUserClickFolder()" value="Add a file"/>
 		<br/><span ng-bind="ctrlFolder.folders.subfoldername"></span>
 		<br/>
-		
+
+
 		<div ng-repeat="folder in ctrlFolder.folders">
-			<input type="radio" name="colors" ng-model="ctrlFolder.folderSelected" ng-value="$index"/> <label ng-bind="folder.foldername"></label>
+			<input type="radio" name="colors" ng-model="ctrlFolder.folderSelected" ng-value="folder"/> <label ng-bind="folder.foldername"></label>
 		</div>
 
 		<br/>
@@ -89,15 +107,19 @@
 		<input type="radio" name="colors" ng-model="ctrlForm.userForm.priority" value="Low"/>Low
 		<br/>
 		
+		
 		<input type="button" ng-click="ctrlForm.onUserClick()" value="Add todo"/>
 		<h2>Todos List</h2>
 		<div ng-repeat="person in ctrlForm.userForm">
 				<h5>ToDo {{$index + 1}}</h4>
-				Name: <label ng-bind="person.name"></label><br/>
-				Description: <label ng-bind="person.description"></label> <br/>
-				Priority: <label ng-bind="person.priority"></label><br/>
-				<input type="button" ng-click="ctrlForm.remove($index)" value="Remove"/>
-				<p>---------------------------------</p>
+				<div ng-class="person.priority">
+					Name: <label ng-bind="person.name"></label><br/>
+					Description: <label ng-bind="person.description"></label> <br/>
+					Priority: <label ng-bind="person.priority"></label><br/>
+					<input type="button" ng-click="ctrlForm.remove(todo)" value="Remove"/>
+					<!--<input type="button" ng-click="ctrlForm.remove($index)" value="Remove"/>-->
+					<p>---------------------------------</p>
+				</div>
 		</div>
 	</div>
 </body>
