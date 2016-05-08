@@ -1,0 +1,21 @@
+Also looking good Arif 20/20.  More notes below.
+
+
+/*
+	These values can go inside a value service and can be injected into this factory.
+/*
+function UserMusicPlaylist() {
+    this.musicPlaylistArr = [{
+		Genre: "Rap",
+		name: 'Rap 1',
+		userChecked: false
+	},{
+		Genre: "Rap",
+		name: 'Rap 2',
+		userChecked: false
+	},{
+		Genre: "Rap",
+
+
+There's a small bug around explicit.  If I set my age to be 30, then check explict, then
+change my age to 10.  The explicit flag is still true.  Other than that it's looking good.

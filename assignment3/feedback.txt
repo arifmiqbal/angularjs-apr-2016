@@ -1,0 +1,40 @@
+Goodjob Arif 20/20.  Some notes below.
+
+	/*
+		Be careful when using the index from the view.  Sometimes 
+		when there's sorting it be a little off.  As an alternative,
+		you can pass the object and find the index then splice it out.
+
+		var index = this.studentAssignment.indexOf(myObject)
+	*/
+	StudentReportCard.prototype.removeAssignment = function(index) {
+ 	     this.studentAssignment.splice(index, 1);
+ 	}
+
+
+
+ 	/*
+
+		There's some code that's copied and pasted here.  Code refactor it a litte.  
+		One alternative would be to put the average/grade/pass in the factory so that
+		when those functions are called the can update the data automatically
+
+ 	*/
+ 	self.onAddClick = function(){
+
+ 		self.studentProfilename.addAssignment(self.studentAssignment.assignmentName,self.studentAssignment.assignmentGrade);
+ 		self.studentAssignment.assignmentName ='';
+ 		self.studentAssignment.assignmentGrade = '';
+
+ 		self.studAverage = self.studentProfilename.average();
+ 		self.studGrade = self.studentProfilename.grade(self.studAverage);
+ 		self.studPass = self.studentProfilename.pass(self.studGrade);
+ 	};
+ 	self.onRemoveClick = function(index){
+
+ 		self.studentProfilename.removeAssignment(index);
+ 		self.studAverage = self.studentProfilename.average();
+ 		self.studGrade = self.studentProfilename.grade(self.studAverage);
+ 		self.studPass = self.studentProfilename.pass(self.studGrade);
+
+ 	};
