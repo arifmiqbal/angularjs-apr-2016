@@ -21,7 +21,7 @@
     var self = this;
     self.location = '40.7547189,-73.9732749';
     self.businessType = ['restaurant','hotel','pharmacy','gas_station','church'];
-    
+  
     
       self.getLocation = function(){
 
