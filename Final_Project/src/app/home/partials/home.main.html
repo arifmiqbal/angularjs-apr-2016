@@ -1,0 +1,48 @@
+<div class="container">
+
+  <h1 ng-bind="ctrl.greeting"></h1>
+
+
+
+	<label>Location:</label><br/>
+	<button ng-click="ctrl.getLocation()">Get My Geo Location</button><input type="text" class="form-control" id="usr" ng-model="ctrl.location">
+	<br/>
+
+	<label for="sel1">Select Business Type (select one):</label><br/>
+      
+       <select class="form-control" id="sel1" ng-model="ctrl.selectedbusinessType"
+	  	ng-options="state as state for state in ctrl.businessType">
+      </select>
+
+
+<br/>
+<button class="btn btn-default" 
+		ng-click="ctrl.submitButton(ctrl.location, ctrl.selectedbusinessType)">Go get it!</button>	
+		<div style="height:20px"></div>
+		
+		<table class="table tablebordered" ng-show="ctrl.showTable">
+
+			<thead>
+		      <tr>
+		        <th>Name</th>
+		        <th>Address</th>
+		        <th>Open Now?</th>
+		        <th>Price Level (1-5)</th>
+		        <th>Rating (1-5)</th>
+		      </tr>
+	   		 </thead>
+			<tr ng-repeat="place in ctrl.addresses">
+			<!--<img src="place.icon">-->
+				<td ng-bind="place.name"></td> 
+				<td ng-bind="place.vicinity"></td>
+				<td ng-if="place.opening_hours.open_now"><span class="label label-success">Open</span></td>
+				<td ng-if="!place.opening_hours.open_now"><span class="label label-danger">Closed</span></td>
+				<td ng-bind="place.price_level"></td>
+				<td ng-bind="place.rating"></td>
+				<td><div ng-repeat="photo in place.photos"><span ng-bind-html="photo.html_attributions"></span></div></td>
+			</tr>
+		</table>
+
+		<!-- <Pre>{{ctrl.addresses | json}}</Pre> -->
+	</div>
+</div>

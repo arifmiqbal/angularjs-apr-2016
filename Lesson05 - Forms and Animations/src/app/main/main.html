@@ -1,0 +1,56 @@
+ <div class="container">
+
+ 	
+  	<h1 ng-bind="ctrl.greeting"></h1>
+
+	<button ng-click="ctrl.addBox()">Add</button>
+	<button ng-click="ctrl.removeBox()">Remove</button>
+	<br/>
+	<div ng-repeat="box in ctrl.boxes" class="box">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid id quisquam delectus, eos error, saepe totam facere ipsum sint perspiciatis quasi? Asperiores molestias magni ipsa officia unde cupiditate at sapiente!
+	</div>
+	
+
+
+
+
+
+	
+	<form name="ctrl.myForm" ng-submit="ctrl.submitTheForm()">
+		<input type="text"
+			   ng-model="ctrl.username" 
+			   placeholder="username"
+			   name="usernameInput"
+			   required><br/>
+
+		<input type="email"
+			   ng-model="ctrl.email"
+			   placeholder="email"
+			   ng-required="ctrl.usernameRequired"><br/>
+
+		<input type="text"
+			   ng-model="ctrl.phone"
+			   placeholder="phone"
+			   ng-pattern="ctrl.phoneExp"
+			   name="phoneInput"><br/>
+				<div ng-show="ctrl.myForm.phoneInput.$invalid">Please enter in a pattern matching (###) ###-#####</div>
+		<input type="submit"
+			   value="Submit My Form"
+			   ng-disabled="ctrl.myForm.$invalid"><br/>
+
+<!-- 		<select ng-model="ctrl.userState"
+				ng-options="state as state for state in ctrl.states">
+
+		</select><br/> -->
+<!-- 		<select ng-model="ctrl.userState"
+				ng-options="state.abbr as state.name for state in ctrl.states">
+
+		</select><br/> -->
+		<select ng-model="ctrl.userState"
+				ng-options="key as value for (key, value) in ctrl.states">
+		</select><br/>
+
+		<pre>{{ ctrl.userState | json }}</pre>
+
+	</form>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+	
+	<h1 ng-bind="ctrl.greeting"></h1>
+	<!-- <div gd-user></div> -->
+
+
+	<!-- used as an element directive -->
+	<!-- <gd-basic-template-url></gd-basic-template-url> -->
+
+	<!-- used as an attribute directive -->
+	<!-- <div gd-basic-template-url></div> -->
+
+	<!-- <h1 gd-basic></h1> -->
+
+	
+	<ul ng-repeat="folder in ctrl.folders">
+		<li gd-folders>
+			<input type="checkbox" ng-model="folderCtrl.expand">
+			<span ng-bind="folder.name"></span>
+			<ul ng-show="folderCtrl.expand">
+				<li ng-repeat="item in folder.items">
+					<span ng-bind="item"></span>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+</div>

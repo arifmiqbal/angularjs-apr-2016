@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+	  <script type="text/javascript" src="index.js"></script>
+
+	  <style type="text/css">
+
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+
+		.greenText {
+			color: green;
+		}
+
+		.redText {
+			color: red;
+		}
+
+		.whiteText {
+			color: white;
+		}
+
+		.strong {
+			font-weight: bold;
+		}
+
+	  </style>
+  </head>
+
+  <body ng-app="MyModule">
+	<h2>Hello World</h2>
+
+
+	<div ng-controller="MyController as ctrl">
+
+
+
+	<button ng-click="ctrl.onUserClick()">Toggle check box</button>
+
+
+
+	<h3>Check Boxes</h3>
+	<input type="checkbox" ng-model="ctrl.isBoxChecked">
+	<div ng-bind="::ctrl.isBoxChecked"></div>
+
+	<div ng-if="ctrl.isBoxChecked" class="redText">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis nam quod, ab illo quas tempora laborum sint iste hic incidunt totam amet, recusandae consequatur placeat tenetur ipsa quibusdam, optio vero?
+	</div>
+	<div ng-show="ctrl.isBoxChecked" class="greenText">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis nam quod, ab illo quas tempora laborum sint iste hic incidunt totam amet, recusandae consequatur placeat tenetur ipsa quibusdam, optio vero?
+	</div>
+
+
+
+
+
+
+<!-- 	<h3>Radio Button</h3>
+	<input type="radio"
+		name="pet"
+		ng-model="ctrl.petSelected"
+		ng-value="ctrl.myDog">Dog
+	<input type="radio"
+		name="pet"
+		ng-model="ctrl.petSelected"
+		ng-value="ctrl.myCat">Cat
+	<input type="radio"
+		name="pet"
+		ng-model="ctrl.petSelected"
+		ng-value="ctrl.myHamster">Hamster
+
+	<div>
+		<label>Selected Pet Name: </label><span ng-bind="ctrl.petSelected.name"></span>
+	</div> -->
+
+
+<!-- 	<h3>Text Input</h3>
+	<input type="text" ng-model="ctrl.person.name.firstName">
+	<label ng-bind="ctrl.person.name.firstName"></label> -->
+
+
+<!-- 	<h3>ng-repeat with an object</h3>
+	<div ng-repeat="(key, value) in ctrl.myPerson">
+		<label ng-bind="key"></label>: <span ng-bind="value"></span>
+	</div> -->
+
+<!-- 	<h3>Intermdiate Array</h3>
+	<div ng-repeat="person in ctrl.myArray">
+		Person #{{ $index }}: 
+		<label ng-bind="person.firstName"></label>
+	</div> -->
+
+<!-- 	<h3>Simple Array</h3>
+	<div ng-repeat="name in ctrl.myArray">
+		<label ng-bind="name"></label>
+	</div> -->
+
+<!-- 		<div ng-bind="ctrl.greeting"></div>
+		<div ng-bind="ctrl.age"></div>
+
+		<div class="box" ng-class="ctrl.textColor"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit officiis dignissimos, voluptatum obcaecati odio modi quae, blanditiis reiciendis temporibus deleniti aspernatur delectus possimus ex repellendus laudantium ipsum quas nisi. Voluptatem!</div>
+ -->
+	</div>
+
+  </body>
+</html>
